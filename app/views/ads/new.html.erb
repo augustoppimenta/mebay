@@ -1,0 +1,11 @@
+<h1>Novo anúncio</h1>
+
+<%= form_for @ad, url: ads_create_path do |f| %>
+  <p><b>Nome</b></br><%= f.text_field :name%></p>
+  <p><b>Descrição</b></br><%= f.text_area :description%></p>
+  <p><b>Preço</b></br><%= f.text_field :price%></p>
+  <p><b>ID Vendedor</b></br><%= f.text_field :seller_id%></p>
+  <p><b>Email</b></br><%= f.text_field :email%></p>
+  <p><b>Img URL</b></br><%= f.text_field :img_url%></p>
+  <p><%= f.submit "Criar" %></p>
+<% end %>
