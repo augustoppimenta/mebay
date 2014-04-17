@@ -15,6 +15,17 @@ class AdsController < ApplicationController
   def create
     @ad = Ad.new(params_ad)
     @ad.save
+    redirect_to "/ads/#{@ad.id}"
+  end
+
+  def edit
+    @ad = Ad.find(params[:id])
+  end
+
+  def update
+    @ad = Ad.find(params[:id])
+    @ad.update(params_ad)
+    redirect_to "/ads/#{@ad.id}"
   end
 
 

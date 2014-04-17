@@ -1,5 +1,7 @@
 Mebay::Application.routes.draw do
 
+  patch 'ads/:id/update', to: 'ads#update'
+  get 'ads/:id/edit', to: 'ads#edit'
   get '/ads/new', to: 'ads#new'
   post 'ads/create', to: 'ads#create'
   get '/ads/', to: 'ads#index'
