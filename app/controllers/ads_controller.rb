@@ -1,5 +1,7 @@
 class AdsController < ApplicationController
 
+  before_filter :authenticate, only: [:edit, :update]
+
   def index
     @ads = Ad.find(:all)
   end
@@ -32,5 +34,11 @@ class AdsController < ApplicationController
   private
     def params_ad
       params.require(:ad).permit(:name, :description, :price, :seller_id, :email, :img_url)
+    end
+
+    def authenticate
+        authenticate_or_request_with_http_basic('Ads') do |username, password|
+          username == 'admin' && password == 'password'
+        end
     end
 end

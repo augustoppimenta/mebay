@@ -43,3 +43,10 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+#identificação de erros
+group :development do
+  gem "better_errors"
+end
+
+gem "binding_of_caller"
