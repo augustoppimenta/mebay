@@ -1,6 +1,6 @@
 class AdsController < ApplicationController
 
-  before_filter :authenticate, only: [:edit, :update]
+  before_filter :authenticate, only: [:edit, :update, :destroy]
 
   def index
     @ads = Ad.find(:all)
@@ -27,7 +27,13 @@ class AdsController < ApplicationController
   def update
     @ad = Ad.find(params[:id])
     @ad.update(params_ad)
-    redirect_to "/ads/#{@ad.id}"
+    redirect_to ads_url
+  end
+
+  def destroy
+    @ad = Ad.find(params[:id])
+    @ad.destroy
+    redirect_to "/ads"
   end
 
 
